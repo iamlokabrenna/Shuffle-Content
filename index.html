@@ -244,7 +244,7 @@
         sentences.forEach((sentence) => {
             const hiddenSentence = shuffledSentences.pop() || '';
             const hiddenWithZeroWidthSpace = hiddenSentence.split('').join('&#8203;');
-            resultHtml += `${sentence}<span style="font-size:0;color:transparent;">${hiddenWithZeroWidthSpace}</span> `;
+            resultHtml += `${sentence}<span style="position: absolute; left: -9999px; top: -9999px; height: 1px; width: 1px; overflow: hidden;">${hiddenWithZeroWidthSpace}</span> `;
         });
         
         document.getElementById('outputHtml').value = `<div>${resultHtml.trim()}</div>`;
