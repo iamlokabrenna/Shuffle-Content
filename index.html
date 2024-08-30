@@ -1,72 +1,243 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- 
-      This is an HTML comment
-      You can write text in a comment and the content won't be visible in the page
-    -->
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool trộn gỏi bọn reup</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Tahoma:wght@700&family=Georgia:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #e6f3e6;
+            font-family: 'Tahoma', sans-serif;
+            margin: 0;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .title {
+            font-family: 'Georgia', serif;
+            font-size: 48px;
+            color: #044a42;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .subheaders {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+.subheader {
+    width: 48%;
+    position: relative;
+}
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://glitch.com/favicon.ico" />
+#outputHtml {
+    width: 100%;
+    height: 300px;
+    padding: 20px;
+    border: 2px solid #044a42;
+    border-radius: 10px;
+    resize: none;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
 
-    <!--
-      This is the page head - it contains info the browser uses
-      Like the title, which appears on the browser tab but not inside the page
-      Further down you'll see the content that displays in the page
-    -->
-    <title>Hello World!</title>
+#copyButton {
+    position: absolute;
+    top: -10px; 
+    right: -10px; 
+    transform: translate(0, 50%);
+    background-color: #044a42;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+    z-index: 1; 
+}
 
-    <!-- The website stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
+#copyButton:hover {
+    background-color: #044a42;
+}
 
-    <!-- The website JavaScript file -->
-    <script src="/script.js" defer></script>
-  </head>
-  <body>
-    <!--
-      The body includes the content you see in the page
-      Each element is defined using tags, like this <div></div>
-      The attributes like class="wrapper" let us style elements in the CSS
-    -->
-    <div class="wrapper">
-      <div class="content" role="main">
-        <h1 class="title">Hello World!</h1>
-        <img
-          src="https://cdn.glitch.com/a9975ea6-8949-4bab-addb-8a95021dc2da%2Fillustration.svg?v=1618177344016"
-          class="illustration"
-          alt="Editor illustration"
-          title="Click the image!"
-        />
-        <div class="instructions">
-          <h2>Using this project</h2>
-          <p>
-            This is the Glitch <strong>Hello Website</strong> project. You can
-            use it to build your own site. Check out the code in the editor and open
-            the <span class="fileopener" data-file="TODO.md" data-line="0"
-              >TODO</span> for next steps!
-          </p>
-          <!--  🚧 TODO: ADD BUTTON HERE -->
+.textareas {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
 
-          <!-- Once you've added the button from TODO.md, click it in the page -->
-          <!-- Check out the function in script.js to see how it works -->
+.shuffle-button {
+    display: block;
+    margin: 0 auto;
+}
+
+        h1,
+        h2 {
+            font-size: 24px;
+            color: #044a42;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .textareas {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 300px;
+            padding: 20px;
+            border: 2px solid #044a42;
+            border-radius: 10px;
+            resize: none;
+            font-size: 16px;
+            color: #333;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            overflow-y: scroll;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #036f5b;
+            box-shadow: 0 0 10px rgba(3, 111, 91, 0.2);
+        }
+        
+        .shuffle-button {
+            background-color: #044a42;
+            color: #fff;
+            font-family: 'Tahoma', sans-serif;
+            font-size: 20px;
+            text-transform: uppercase;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .shuffle-button:hover {
+            background-color: #044a42;
+        }
+
+        .watermark {
+        margin-top: 40px;
+        text-align: center;
+        color: #044a42;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+    }
+    
+    .watermark a {
+        text-decoration: none;
+        color: #044a42;
+    }
+    
+    .watermark a:hover {
+        text-decoration: underline;
+    }
+        
+        @media (max-width: 768px) {
+            .subheaders,
+            .textareas {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            textarea {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <div class="title"><b>BÁNH TRÁNG TRỘN</b></div>
+        
+        <div class="subheaders">
+            <div class="subheader">
+                <h1>Cho nguyên liệu</h1>
+                <textarea id="inputText" placeholder="Dán nội dung gốc vào đây..."></textarea>
+            </div>
+            <div class="subheader">
+                <h2>Măm măm nào</h2>
+                <textarea id="outputHtml" placeholder="Nhấn copy để sao chép toàn bộ..." readonly></textarea>
+                <button id="copyButton" onclick="copyToClipboard()" style="position: absolute; right: 10px; top: 10px;">Copy</button>
+</div>
+
+            </div>
         </div>
-      </div>
+        
+        <button class="shuffle-button" onclick="shuffleContent()"><b>TRỘN</b></button>
+        
+        <div class="watermark">
+    <a href="https://iamlokabrenna.wordpress.com" target="_blank" style="text-decoration: none; color: #044a42; font-family: 'Tahoma', sans-serif; font-size: 14px;">
+        <b>By Lokabrenna</b>
+    </a>
+        
     </div>
-    <!-- The footer holds our remix button — you can keep or delete it ✂ -->
-    <footer class="footer">
-      <div class="links"></div>
-      <a
-        class="btn--remix"
-        target="_top"
-        href="https://glitch.com/edit/#!/remix/glitch-hello-website"
-      >
-        <img
-          src="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FLogo_Color.svg?v=1618199565140"
-          alt=""
-        />
-        Remix on Glitch
-      </a>
-    </footer>
-  </body>
+    
+    <script>
+    function copyToClipboard() {
+        var copyText = document.getElementById("outputHtml");
+        copyText.select();
+        document.execCommand("copy");
+        alert("Copied!");
+    }
+
+    function shuffleContent() {
+        const inputText = document.getElementById('inputText').value.trim();
+        
+        if (!inputText) {
+            alert('Vui lòng nhập nội dung gốc.');
+            return;
+        }
+        
+        const sentences = inputText.match(/[^.!?]+[.!?]*\s*/g) || [];
+        
+        if (sentences.length === 0) {
+            alert('Không tìm thấy câu nào để xáo trộn.');
+            return;
+        }
+        
+        const shuffledSentences = sentences.slice().sort(() => Math.random() - 0.5);
+        
+        let resultHtml = '';
+        sentences.forEach((sentence) => {
+            const hiddenSentence = shuffledSentences.pop() || '';
+            const hiddenWithZeroWidthSpace = hiddenSentence.split('').join('&#8203;');
+            resultHtml += `${sentence}<span style="font-size:0;color:transparent;">${hiddenWithZeroWidthSpace}</span> `;
+        });
+        
+        document.getElementById('outputHtml').value = `<div>${resultHtml.trim()}</div>`;
+    }
+</script>
+
+</body>
 </html>
