@@ -18,7 +18,7 @@
     <title>Trộn gỏi bọn reup</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Tahoma:wght@700&family=Georgia:wght@700&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
     body {
         background-color: #e6f3e6;
@@ -140,7 +140,7 @@
     }
 
     .watermark {
-        margin-top: 10px;
+        margin-top: 25px;
         text-align: center;
         color: #044a42;
         font-family: 'Tahoma', sans-serif;
@@ -151,9 +151,21 @@
         text-decoration: none;
         color: #044a42;
     }
+    
+    .social-icons {
+        margin-top: 10px;
+        text-align: center;
+    }
 
-    .watermark a:hover {
-        text-decoration: underline;
+    .icon {
+        margin: 0 5px;
+        color: #044a42;
+        font-size: 14px;
+        text-decoration: none;
+    }
+
+    .icon:hover {
+        color: #036f5b;
     }
 
     @media (max-width: 768px) {
@@ -191,10 +203,15 @@
         <div>
             <button class="shuffle-button" onclick="shuffleContent()"><b>TRỘN</b></button>
         </div>
-        <div class="watermark">
-            <a href="https://iamlokabrenna.wordpress.com" target="_blank">
+        <div class="watermark">    
                 <b>By Lokabrenna</b>
-            </a>
+            
+            <div class="social-icons">
+                <a href="https://www.facebook.com/iamlokabrenna/" target="_blank" class="icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://iamlokabrenna.wordpress.com" target="_blank" class="icon"><i class="fab fa-wordpress"></i></a>
+                <a href="https://www.wattpad.com/user/iamlokabrenna" target="_blank" class="icon">
+                    <img src="https://iamlokabrenna.wordpress.com/wp-content/uploads/2024/08/wattpad-1.png" alt="Wattpad" style="width: 14px; height: 14px;"></a>
+            </div>
         </div>
     </div>
     
