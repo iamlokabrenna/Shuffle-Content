@@ -16,190 +16,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trộn gỏi bọn reup</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Tahoma:wght@700&family=Georgia:wght@700&display=swap" rel="stylesheet">
+    
     <style>
-        body {
-            background-color: #e6f3e6;
-            font-family: 'Tahoma', sans-serif;
-            margin: 0;
-            padding: 35px;
-            box-sizing: border-box;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .title {
-            font-family: 'Georgia', serif;
-            font-size: 40px;
-            color: #044a42;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        
-        .subheaders {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .subheader {
-            width: 48%;
-            position: relative;
-        }
+    body {
+        background-color: #e6f3e6;
+        font-family: 'Tahoma', sans-serif;
+        margin: 0;
+        padding: 35px;
+        box-sizing: border-box;
+    }
 
-        #outputHtml {
-            width: 100%;
-            height: 300px;
-            padding: 20px;
-            border: 4px solid #044a42;
-            border-radius: 20px;
-            resize: none;
-            font-size: 14px;
-            color: #333;
-            background-color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
-            overflow-y: scroll;
-        }
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        #copyButton {
-            font-family: 'Tahoma', sans-serif;   
-            position: absolute;
-            top: -10px; 
-            right: -10px; 
-            transform: translate(0, 50%);
-            background-color: #044a42;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 12px;
-            z-index: 1; 
-        }
+    .title {
+        font-family: 'Georgia', serif;
+        font-size: 40px;
+        color: #044a42;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        text-align: center;
+    }
 
-        #copyButton:hover {
-            background-color: #036f5b;
-        }
+    h1,
+    h2 {
+        font-size: 24px;
+        color: #044a42;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
 
-        .textareas {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
-        }
+    .subheaders {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        text-align: center;
+    }
 
-        .shuffle-button {
-            display: block;
-            margin: 0 auto;
-        }
+    .subheader {
+        width: 48%;
+        position: relative;
+    }
 
-        h1,
-        h2 {
-            font-size: 24px;
-            color: #044a42;
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        .textareas {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
-        }
-        
-        textarea {
-            width: 100%;
-            height: 300px;
-            padding: 20px;
-            border: 4px solid #044a42;
-            border-radius: 20px;
-            resize: none;
-            font-size: 14px;
-            color: #333;
-            background-color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
-            overflow-y: scroll;
-        }
-        
-        textarea:focus {
-            outline: none;
-            border-color: #044a42;
-            box-shadow: 0 0 10px rgba(3, 111, 91, 0.2);
-        }
-        
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px; 
-            margin-bottom: 20px;
-        }
+    .textareas {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        gap: 20px;
+    }
 
-        .shuffle-button {
-            background-color: #044a42;
-            color: #fff;
-            font-family: 'Tahoma', sans-serif;
-            font-size: 20px;
-            text-transform: uppercase;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 100px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            min-width: 150px; 
-            text-align: center; 
-        }
+    textarea,
+    #outputHtml {
+        width: calc(100% - 10px);
+        height: 300px;
+        padding: 20px;
+        border: 4px solid #044a42;
+        border-radius: 10px;
+        resize: none;
+        font-size: 14px;
+        color: #333;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        overflow-y: scroll;
+    }
 
-        .shuffle-button:hover {
-            background-color: #036f5b;
-        }
+    textarea:focus {
+        outline: none;
+        border-color: #044a42;
+        box-shadow: 0 0 10px rgba(3, 111, 91, 0.2);
+    }
 
-        .watermark {
+    #copyButton {
+        font-family: 'Tahoma', sans-serif;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        transform: translate(0, 50%);
+        background-color: #044a42;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 12px;
+        z-index: 1;
+    }
+
+    #copyButton:hover {
+        background-color: #036f5b;
+    }
+
+    .shuffle-button {
+        display: block;
+        margin: 0 auto;
+        background-color: #044a42;
+        color: #fff;
+        font-family: 'Tahoma', sans-serif;
+        font-size: 20px;
+        text-transform: uppercase;
+        padding: 0.8rem 2rem;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        min-width: 150px;
+        text-align: center;
+    }
+
+    .shuffle-button:hover {
+        background-color: #036f5b;
+    }
+
+    .watermark {
         margin-top: 10px;
         text-align: center;
         color: #044a42;
         font-family: 'Tahoma', sans-serif;
         font-size: 14px;
+    }
+
+    .watermark a {
+        text-decoration: none;
+        color: #044a42;
+    }
+
+    .watermark a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .subheaders,
+        .textareas {
+            flex-direction: column;
+            align-items: center;
         }
 
-        .watermark a {
-            text-decoration: none;
-            color: #044a42;
+        textarea,
+        #outputHtml {
+            width: 100%;
+            margin-bottom: 10px;
         }
+    }
+</style>
 
-        .watermark a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            .subheaders,
-            .textareas {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            textarea {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="container">
       <div class="title"><b>BÁNH TRÁNG TRỘN</b></div>
-      
+        
         <div class="subheaders">
             <div class="subheader">
                 <h1>Cho nguyên liệu</h1>
@@ -212,10 +188,8 @@
             </div>
         </div>
         
-        <div class="button-container">
-                <button class="shuffle-button" onclick="shuffleWordsContent()"><b>TRỘN TỪ</b></button>
-                <button class="shuffle-button" onclick="shuffleSentencesContent()"><b>TRỘN CÂU</b></button>
-
+        <div>
+            <button class="shuffle-button" onclick="shuffleContent()"><b>TRỘN</b></button>
         </div>
         <div class="watermark">
             <a href="https://iamlokabrenna.wordpress.com" target="_blank">
@@ -226,171 +200,99 @@
     
     <script>
     function copyToClipboard() {
-        var copyText = document.getElementById("outputHtml");
-        copyText.select();
-        document.execCommand("copy");
-        alert("Copied!");
-    }
-
-    function shuffleWordsContent() {
-    const inputText = document.getElementById('inputText').value.trim();
-
-    if (!inputText) {
-        alert('Vui lòng nhập nội dung gốc.');
-        return;
-    }
-
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(inputText, 'text/html');
-    
-    const paragraphs = doc.querySelectorAll('p');
-
-    if (paragraphs.length === 0) {
-        alert('Không tìm thấy thẻ <p> nào để xáo trộn.');
-        return;
-    }
-
-    paragraphs.forEach(p => {
+    var copyText = document.getElementById("outputHtml");
+    copyText.select();
+    document.execCommand("copy");
         
-        const innerHTML = p.innerHTML;
-        
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = innerHTML;
-        
-        const textNodes = [];
-        const traverseNodes = (node) => {
-            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
-                textNodes.push(node);
-            } else if (node.nodeType === Node.ELEMENT_NODE) {
-                node.childNodes.forEach(traverseNodes);
-            }
-        };
-        traverseNodes(tempDiv);
-        
-        const textContents = textNodes.map(node => node.textContent.trim()).filter(text => text.length > 0);
-                
-        const sentences = textContents.join(' ').match(/[^.!?]+[.!?]*[\s]*/g) || [];
+    var copyButton = document.getElementById("copyButton");
+    copyButton.innerText = "Copied!";
 
-        if (sentences.length === 0) {
-            p.innerHTML = innerHTML; 
+    setTimeout(function() {
+        copyButton.innerText = "Copy";
+    }, 3000);
+}
+
+    function shuffleContent() {
+        const inputText = document.getElementById('inputText').value.trim();
+
+        if (!inputText) {
+            alert('Vui lòng nhập nội dung gốc.');
             return;
         }
-        
-        const shuffledSentences = [...sentences];
+
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(inputText, 'text/html');
+
+        const paragraphs = doc.querySelectorAll('p');
+
+        if (paragraphs.length === 0) {
+            alert('Không tìm thấy thẻ <p> nào để xáo trộn.');
+            return;
+        }
+
+        const allSentences = [];
+
+        paragraphs.forEach(p => {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = p.innerHTML;
+
+            const textNodes = [];
+            const traverseNodes = (node) => {
+                if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+                    textNodes.push(node);
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    node.childNodes.forEach(traverseNodes);
+                }
+            };
+            traverseNodes(tempDiv);
+
+            const textContents = textNodes.map(node => node.textContent.trim()).filter(text => text.length > 0);
+            const sentences = textContents.join(' ').match(/[^.!?]+[.!?]*\s*/g) || [];
+
+            allSentences.push(...sentences);
+        });
+
+        const shuffledSentences = [...allSentences];
         for (let i = shuffledSentences.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [shuffledSentences[i], shuffledSentences[j]] = [shuffledSentences[j], shuffledSentences[i]];
         }
-       
-        const shuffleWords = (sentence) => {
-            const words = sentence.split(' ');
-            for (let i = words.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [words[i], words[j]] = [words[j], words[i]];
-            }
-            return words.join(' ');
-        };
-        
-        const randomizedContent = shuffledSentences.map(shuffleWords);
-        
-        let resultHtml = innerHTML;
-        textNodes.forEach((node, index) => {
-            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
-                const originalSentence = node.textContent.trim();
-                const hiddenSentence = randomizedContent[index] || '';
-                const hiddenWithZeroWidthSpace = hiddenSentence.split('').join('&#8203;');
-                resultHtml = resultHtml.replace(originalSentence, `${originalSentence}<span style="position: absolute; left: -9999px; top: -9999px; height: 1px; width: 1px; overflow: hidden;">${hiddenWithZeroWidthSpace}</span>`);
-            }
+
+        let shuffledIndex = 0;
+        paragraphs.forEach(p => {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = p.innerHTML;
+
+            const textNodes = [];
+            const traverseNodes = (node) => {
+                if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+                    textNodes.push(node);
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    node.childNodes.forEach(traverseNodes);
+                }
+            };
+            traverseNodes(tempDiv);
+
+            let resultHtml = p.innerHTML;
+            textNodes.forEach((node, index) => {
+                if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+                    const originalSentence = node.textContent;
+                    const hiddenSentence = shuffledSentences[shuffledIndex] || '';
+                    shuffledIndex++;
+                    resultHtml = resultHtml.replace(
+                        originalSentence,
+                        `${originalSentence}<span style="position: absolute; left: -9999px; top: -9999px;">&#8203;${hiddenSentence}</span>`
+                    );
+                }
+            });
+
+            p.innerHTML = resultHtml;
         });
-        
-        p.innerHTML = resultHtml;
-    });
 
-    document.getElementById('outputHtml').value = doc.body.innerHTML;
-}
-        function shuffleSentencesContent() {
-    const inputText = document.getElementById('inputText').value.trim();
-
-    if (!inputText) {
-        alert('Vui lòng nhập nội dung gốc.');
-        return;
+        const serializer = new XMLSerializer();
+        const resultHtml = serializer.serializeToString(doc.body);
+        document.getElementById('outputHtml').value = resultHtml.trim();
     }
-    
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(inputText, 'text/html');
-    
-    const paragraphs = doc.querySelectorAll('p');
-
-    if (paragraphs.length === 0) {
-        alert('Không tìm thấy thẻ <p> nào để xáo trộn.');
-        return;
-    }
-
-    const allSentences = [];
-
-    paragraphs.forEach(p => {
-        
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = p.innerHTML;
-
-        const textNodes = [];
-        const traverseNodes = (node) => {
-            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
-                textNodes.push(node);
-            } else if (node.nodeType === Node.ELEMENT_NODE) {
-                node.childNodes.forEach(traverseNodes);
-            }
-        };
-        traverseNodes(tempDiv);
-        
-        const textContents = textNodes.map(node => node.textContent.trim()).filter(text => text.length > 0);
-        const sentences = textContents.join(' ').match(/[^.!?]+[.!?]*\s*/g) || [];
-
-        allSentences.push(...sentences);
-    });
-    
-    const shuffledSentences = [...allSentences];
-    for (let i = shuffledSentences.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffledSentences[i], shuffledSentences[j]] = [shuffledSentences[j], shuffledSentences[i]];
-    }
-   
-    let shuffledIndex = 0;
-    paragraphs.forEach(p => {
-        
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = p.innerHTML;
-
-        const textNodes = [];
-        const traverseNodes = (node) => {
-            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
-                textNodes.push(node);
-            } else if (node.nodeType === Node.ELEMENT_NODE) {
-                node.childNodes.forEach(traverseNodes);
-            }
-        };
-        traverseNodes(tempDiv);
-       
-        const textContents = textNodes.map(node => node.textContent.trim()).filter(text => text.length > 0);
-        const sentences = textContents.join(' ').match(/[^.!?]+[.!?]*\s*/g) || [];
-       
-        let resultHtml = p.innerHTML;
-        textNodes.forEach((node, index) => {
-            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
-                const originalSentence = node.textContent;
-                const hiddenSentence = shuffledSentences[shuffledIndex] || '';
-                shuffledIndex++;
-                const hiddenWithZeroWidthSpace = hiddenSentence.split('').join('&#8203;');
-                resultHtml = resultHtml.replace(originalSentence, `${originalSentence}<span style="position: absolute; left: -9999px; top: -9999px; height: 1px; width: 1px; overflow: hidden;">${hiddenWithZeroWidthSpace}</span>`);
-            }
-        });
-        
-        p.innerHTML = resultHtml;
-    });
-
-    // 
-    document.getElementById('outputHtml').value = doc.body.innerHTML;
-}
     </script>
 </body>
 </html>
