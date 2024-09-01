@@ -131,7 +131,7 @@
         border-radius: 100px;
         cursor: pointer;
         transition: background-color 0.3s ease;
-        min-width: 150px;
+        min-width: 100px;
         text-align: center;
     }
 
@@ -304,11 +304,12 @@
             });
 
             p.innerHTML = resultHtml;
-        });
+});
 
-        const serializer = new XMLSerializer();
-        const resultHtml = serializer.serializeToString(doc.body);
-        document.getElementById('outputHtml').value = resultHtml.trim();
+const newDiv = document.createElement('div');
+newDiv.innerHTML = doc.body.innerHTML; 
+const resultHtml = newDiv.innerHTML; 
+document.getElementById('outputHtml').value = resultHtml.trim();
     }
     </script>
 </body>
